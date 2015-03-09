@@ -1,8 +1,5 @@
 package com.thomas15v.NoAdver.plugin;
 
-/**
- * Created by thomas on 09/03/15.
- */
 public abstract class ChatMessage {
 
     public abstract String getMessage();

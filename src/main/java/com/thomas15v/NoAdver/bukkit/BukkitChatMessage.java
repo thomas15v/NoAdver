@@ -3,9 +3,6 @@ package com.thomas15v.NoAdver.bukkit;
 import com.thomas15v.NoAdver.plugin.ChatMessage;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-/**
- * Created by thomas on 09/03/15.
- */
 public class BukkitChatMessage extends ChatMessage {
 
     private AsyncPlayerChatEvent event;

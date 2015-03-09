@@ -7,9 +7,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.spongepowered.api.event.state.ServerStartedEvent;
 import org.spongepowered.api.util.event.Subscribe;
 
-/**
- * Created by thomas on 09/03/15.
- */
 @org.spongepowered.api.plugin.Plugin(id = "NoAdver", version = "0.1", name = "NoAdver")
 public class MultiPluginLauncher extends JavaPlugin {
 

@@ -9,9 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-/**
- * Created by thomas on 09/03/15.
- */
 public class UrlMatcher {
 
     public static List<String> getUrls(String string){
@@ -26,7 +23,6 @@ public class UrlMatcher {
 
     private static String getUrl(String word){
             if (word.length() > 1 && word.contains(".") && !word.contains(" ")) {
-                System.out.println(word);
                 try {
                     word = word.replace(",", "").replace("?", "").replace("!", "");
                     if (word.endsWith("."))
@@ -49,7 +45,6 @@ public class UrlMatcher {
             Socket socket = new Socket();
             socket.connect(new InetSocketAddress(url, 25565), 2000);
             socket.close();
-            System.out.println("This is a minecraft server: " + url);
             return true;
         } catch (Exception ex) {
             return false;
@@ -59,7 +54,6 @@ public class UrlMatcher {
     public static boolean isEnjinSite(String url){
         try {
             new Scanner(new URL("http://" + url + "//api/v1/api.php").openStream(), "UTF-8").useDelimiter("\\A").next();
-            System.out.println("This is an enjin site: " + url);
             return true;
         }catch (Exception e){}
         return false;
@@ -81,7 +75,6 @@ public class UrlMatcher {
                 String url = getUrl(element.html());
                 if (url != null && !checked.contains(url)) {
                     checked.add(url);
-                    System.out.println(checked);
                     if (hasMinecraftService(url) || isEnjinSite(url)) {
                         System.out.println("We found this " + url);
                         return true;
@@ -89,9 +82,7 @@ public class UrlMatcher {
                 }
             }
         }
-        catch (Exception e){
-            e.printStackTrace();
-        }
+        catch (Exception e){}
         return false;
     }
 

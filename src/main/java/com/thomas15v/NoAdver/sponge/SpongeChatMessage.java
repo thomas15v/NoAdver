@@ -6,9 +6,6 @@ import org.spongepowered.api.text.format.TextColors;
 import org.spongepowered.api.text.message.Message;
 import org.spongepowered.api.text.message.Messages;
 
-/**
- * Created by thomas on 09/03/15.
- */
 public class SpongeChatMessage extends ChatMessage {
 
     private PlayerChatEvent event;
