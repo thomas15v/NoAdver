@@ -1,10 +1,12 @@
 package com.thomas15v.NoAdver.sponge;
 
+import com.thomas15v.NoAdver.util.IgnoreAbleListener;
 import com.thomas15v.NoAdver.plugin.Plugin;
 import org.spongepowered.api.event.entity.living.player.PlayerChatEvent;
+import org.spongepowered.api.util.event.Event;
 import org.spongepowered.api.util.event.Subscribe;
 
-public class SpongeChatListener {
+public class SpongeChatListener extends IgnoreAbleListener<Event> {
 
     private Plugin plugin;
 
@@ -14,7 +16,10 @@ public class SpongeChatListener {
 
     @Subscribe
     public void onChat(PlayerChatEvent event){
-        plugin.OnChat(new SpongeChatMessage(event));
+        if (isIgnore(event))
+            removeIgnored(event);
+        else
+            plugin.OnChat(new SpongeChatMessage(event));
     }
 
 }

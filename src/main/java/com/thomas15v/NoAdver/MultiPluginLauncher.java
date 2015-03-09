@@ -1,8 +1,10 @@
 package com.thomas15v.NoAdver;
 
 import com.thomas15v.NoAdver.bukkit.BukkitChatListener;
+import com.thomas15v.NoAdver.bukkit.BukkitServer;
 import com.thomas15v.NoAdver.plugin.Plugin;
 import com.thomas15v.NoAdver.sponge.SpongeChatListener;
+import com.thomas15v.NoAdver.sponge.SpongeServer;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.spongepowered.api.event.state.ServerStartedEvent;
 import org.spongepowered.api.util.event.Subscribe;
@@ -14,13 +16,19 @@ public class MultiPluginLauncher extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        this.plugin = new Plugin();
-        getServer().getPluginManager().registerEvents(new BukkitChatListener(plugin, this), this);
+        BukkitChatListener listener = new BukkitChatListener(this);
+        this.plugin = new Plugin(new BukkitServer(this, listener));
+        getServer().getPluginManager().registerEvents(listener, this);
     }
 
     @Subscribe
-    public void onEnabled(ServerStartedEvent event){
-        this.plugin = new Plugin();
-        event.getGame().getEventManager().register(this, new SpongeChatListener(plugin));
+    public void onEnable(ServerStartedEvent event){
+        SpongeChatListener listener = new SpongeChatListener(plugin);
+        this.plugin = new Plugin(new SpongeServer(this, listener, event.getGame()));
+        event.getGame().getEventManager().register(this, listener);
+    }
+
+    public Plugin getPlugin() {
+        return plugin;
     }
 }

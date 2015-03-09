@@ -6,7 +6,7 @@ import org.spongepowered.api.text.format.TextColors;
 import org.spongepowered.api.text.message.Message;
 import org.spongepowered.api.text.message.Messages;
 
-public class SpongeChatMessage extends ChatMessage {
+public class SpongeChatMessage implements ChatMessage {
 
     private PlayerChatEvent event;
 
@@ -33,5 +33,10 @@ public class SpongeChatMessage extends ChatMessage {
     @Override
     public boolean isCanceled() {
         return event.isCancelled();
+    }
+
+    @Override
+    public Object getHandle() {
+        return event;
     }
 }

@@ -1,12 +1,14 @@
 package com.thomas15v.NoAdver.plugin;
 
-public abstract class ChatMessage {
+public interface ChatMessage {
 
-    public abstract String getMessage();
+    public String getMessage();
 
-    public abstract void warnplayer(String s);
+    public void warnplayer(String s);
 
-    public abstract void setCanceled(boolean canceled);
+    public void setCanceled(boolean canceled);
 
-    public abstract boolean isCanceled();
+    public boolean isCanceled();
+
+    public Object getHandle();
 }
