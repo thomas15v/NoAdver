@@ -1,9 +1,6 @@
 package com.thomas15v.NoAdver.bukkit;
 
-import com.thomas15v.NoAdver.MultiPluginLauncher;
 import com.thomas15v.NoAdver.plugin.ChatMessage;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 /**

@@ -20,7 +20,7 @@ public class BukkitChatListener implements Listener {
     }
 
     public void onChat(AsyncPlayerChatEvent event){
-        ChatMessage message = new BukkitChatMessage(event);
+        plugin.OnChat(new BukkitChatMessage(event));
     }
 
 }

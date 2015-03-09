@@ -3,7 +3,6 @@ package com.thomas15v.NoAdver.sponge;
 import com.thomas15v.NoAdver.plugin.Plugin;
 import org.spongepowered.api.event.entity.living.player.PlayerChatEvent;
 import org.spongepowered.api.util.event.Subscribe;
-import sun.net.www.content.text.plain;
 
 /**
  * Created by thomas on 09/03/15.

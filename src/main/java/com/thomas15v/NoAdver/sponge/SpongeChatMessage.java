@@ -2,10 +2,8 @@ package com.thomas15v.NoAdver.sponge;
 
 import com.thomas15v.NoAdver.plugin.ChatMessage;
 import org.spongepowered.api.event.entity.living.player.PlayerChatEvent;
-import org.spongepowered.api.text.chat.ChatType;
 import org.spongepowered.api.text.format.TextColors;
 import org.spongepowered.api.text.message.Message;
-import org.spongepowered.api.text.message.MessageBuilder;
 import org.spongepowered.api.text.message.Messages;
 
 /**

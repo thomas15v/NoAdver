@@ -3,10 +3,7 @@ package com.thomas15v.NoAdver.plugin;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.parser.Parser;
 import org.jsoup.select.Elements;
-import sun.net.www.content.audio.wav;
-
 import java.net.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -71,9 +68,12 @@ public class UrlMatcher {
     public static boolean websiteContainsMinecraftServer(String website){
         try {
             website = website.replace("www.", "");
-            if (hasMinecraftService("play." + website) || hasMinecraftService("mc." + website))
-                return true;
+            String[] domains = {"play", "mc", "tekkit", "ftb", "tl", "pvp", "minecraft"};
+            for (String domain : domains)
+                if (hasMinecraftService(domain + website))
+                    return true;
 
+            //Heavy shit this lol. But WE HAVE TO BE SURE DON'T WE
             Document doc = Jsoup.connect("http://" + website).userAgent("Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:35.0) Gecko/20100101 Firefox/35.0").get();
             Elements elements = doc.select("a,p,span,h1,h2,h3,h4,h5");
             List<String> checked = new ArrayList<>();
