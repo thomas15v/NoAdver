@@ -4,6 +4,7 @@ import com.thomas15v.NoAdver.util.IgnoreAbleListener;
 import com.thomas15v.NoAdver.plugin.Plugin;
 import org.spongepowered.api.event.entity.living.player.PlayerChatEvent;
 import org.spongepowered.api.util.event.Event;
+import org.spongepowered.api.util.event.Order;
 import org.spongepowered.api.util.event.Subscribe;
 
 public class SpongeChatListener extends IgnoreAbleListener<Event> {
@@ -14,7 +15,7 @@ public class SpongeChatListener extends IgnoreAbleListener<Event> {
         this.plugin = plugin;
     }
 
-    @Subscribe
+    @Subscribe(order = Order.PRE)
     public void onChat(PlayerChatEvent event){
         if (isIgnore(event))
             removeIgnored(event);

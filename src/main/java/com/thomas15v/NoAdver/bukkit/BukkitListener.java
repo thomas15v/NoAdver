@@ -6,6 +6,7 @@ import com.thomas15v.NoAdver.bukkit.events.BukkitCommandEventMessage;
 import com.thomas15v.NoAdver.util.IgnoreAbleListener;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
@@ -18,7 +19,7 @@ public class BukkitListener extends IgnoreAbleListener<Event> implements Listene
         this.launcher = launcher;
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.LOWEST)
     public void onChat(AsyncPlayerChatEvent event){
         if (isIgnore(event))
             removeIgnored(event);
@@ -26,7 +27,7 @@ public class BukkitListener extends IgnoreAbleListener<Event> implements Listene
             this.launcher.getPlugin().checkEvent(new BukkitChatEventMessage(event));
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.LOWEST)
     public void onCommand(PlayerCommandPreprocessEvent event){
         if (isIgnore(event))
             removeIgnored(event);
