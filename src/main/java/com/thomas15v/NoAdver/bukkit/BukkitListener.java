@@ -19,7 +19,7 @@ public class BukkitListener extends IgnoreAbleListener<Event> implements Listene
         this.launcher = launcher;
     }
 
-    @EventHandler(priority = EventPriority.LOWEST)
+    @EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
     public void onChat(AsyncPlayerChatEvent event){
         if (isIgnore(event))
             removeIgnored(event);
@@ -27,7 +27,7 @@ public class BukkitListener extends IgnoreAbleListener<Event> implements Listene
             this.launcher.getPlugin().checkEvent(new BukkitChatEventMessage(event));
     }
 
-    @EventHandler(priority = EventPriority.LOWEST)
+    @EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
     public void onCommand(PlayerCommandPreprocessEvent event){
         if (isIgnore(event))
             removeIgnored(event);

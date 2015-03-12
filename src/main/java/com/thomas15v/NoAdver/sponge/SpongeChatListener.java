@@ -15,7 +15,7 @@ public class SpongeChatListener extends IgnoreAbleListener<Event> {
         this.plugin = plugin;
     }
 
-    @Subscribe(order = Order.PRE)
+    @Subscribe(order = Order.PRE, ignoreCancelled = true)
     public void onChat(PlayerChatEvent event){
         if (isIgnore(event))
             removeIgnored(event);
