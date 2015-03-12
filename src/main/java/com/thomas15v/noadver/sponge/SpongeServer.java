@@ -1,9 +1,9 @@
-package com.thomas15v.NoAdver.sponge;
+package com.thomas15v.noadver.sponge;
 
-import com.thomas15v.NoAdver.MultiPluginLauncher;
-import com.thomas15v.NoAdver.plugin.ChatMessage;
-import com.thomas15v.NoAdver.plugin.Server;
-import com.thomas15v.NoAdver.sponge.SpongeChatListener;
+import com.thomas15v.noadver.MultiPluginLauncher;
+import com.thomas15v.noadver.plugin.ChatMessage;
+import com.thomas15v.noadver.plugin.Server;
+import com.thomas15v.noadver.sponge.SpongeListener;
 import org.spongepowered.api.Game;
 import org.spongepowered.api.util.event.Event;
 
@@ -13,10 +13,10 @@ import org.spongepowered.api.util.event.Event;
 public class SpongeServer implements Server {
 
     private MultiPluginLauncher multiPluginLauncher;
-    private SpongeChatListener listener;
+    private SpongeListener listener;
     private Game game;
 
-    public SpongeServer(MultiPluginLauncher multiPluginLauncher, SpongeChatListener listener, Game game) {
+    public SpongeServer(MultiPluginLauncher multiPluginLauncher, SpongeListener listener, Game game) {
         this.multiPluginLauncher = multiPluginLauncher;
         this.listener = listener;
         this.game = game;

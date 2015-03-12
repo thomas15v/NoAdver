@@ -1,9 +1,9 @@
-package com.thomas15v.NoAdver.bukkit;
+package com.thomas15v.noadver.bukkit;
 
-import com.thomas15v.NoAdver.MultiPluginLauncher;
-import com.thomas15v.NoAdver.bukkit.events.BukkitChatEventMessage;
-import com.thomas15v.NoAdver.bukkit.events.BukkitCommandEventMessage;
-import com.thomas15v.NoAdver.util.IgnoreAbleListener;
+import com.thomas15v.noadver.MultiPluginLauncher;
+import com.thomas15v.noadver.bukkit.events.BukkitChatEventMessage;
+import com.thomas15v.noadver.bukkit.events.BukkitCommandEventMessage;
+import com.thomas15v.noadver.util.IgnoreAbleListener;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;

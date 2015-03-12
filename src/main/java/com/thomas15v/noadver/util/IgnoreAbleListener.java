@@ -1,4 +1,4 @@
-package com.thomas15v.NoAdver.util;
+package com.thomas15v.noadver.util;
 
 import java.util.ArrayList;
 import java.util.List;

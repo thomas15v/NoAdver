@@ -1,4 +1,4 @@
-package com.thomas15v.NoAdver.plugin;
+package com.thomas15v.noadver.plugin;
 
 /**
  * Created by thomas15v on 9/03/15.

@@ -1,7 +1,7 @@
-package com.thomas15v.NoAdver.bukkit;
+package com.thomas15v.noadver.bukkit;
 
-import com.thomas15v.NoAdver.plugin.ChatMessage;
-import com.thomas15v.NoAdver.plugin.Server;
+import com.thomas15v.noadver.plugin.ChatMessage;
+import com.thomas15v.noadver.plugin.Server;
 import org.bukkit.Bukkit;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.plugin.java.JavaPlugin;
