@@ -1,4 +1,4 @@
-package com.thomas15v.NoAdver.plugin;
+package com.thomas15v.noadver.plugin;
 
 import org.junit.Assert;
 import org.junit.Test;

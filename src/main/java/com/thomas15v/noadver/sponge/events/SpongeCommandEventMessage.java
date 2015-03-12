@@ -1,27 +1,27 @@
-package com.thomas15v.NoAdver.sponge;
+package com.thomas15v.noadver.sponge.events;
 
-import com.thomas15v.NoAdver.plugin.ChatMessage;
-import org.spongepowered.api.event.entity.living.player.PlayerChatEvent;
+import com.thomas15v.noadver.plugin.ChatMessage;
+
+import org.spongepowered.api.event.message.CommandEvent;
 import org.spongepowered.api.text.format.TextColors;
-import org.spongepowered.api.text.message.Message;
 import org.spongepowered.api.text.message.Messages;
 
-public class SpongeChatMessage implements ChatMessage {
+public class SpongeCommandEventMessage implements ChatMessage {
 
-    private PlayerChatEvent event;
+    private CommandEvent event;
 
-    public SpongeChatMessage(PlayerChatEvent event){
+    public SpongeCommandEventMessage(CommandEvent event){
         this.event = event;
     }
 
     @Override
     public String getMessage() {
-        return ((Message.Text) event.getMessage()).getContent();
+        return "/" + event.getCommand() + " " + event.getArguments();
     }
 
     @Override
     public void warnplayer(String s) {
-        event.getPlayer().sendMessage(Messages.builder(s).color(TextColors.RED).build());
+        event.getSource().sendMessage(Messages.builder(s).color(TextColors.RED).build());
         event.setCancelled(true);
     }
 

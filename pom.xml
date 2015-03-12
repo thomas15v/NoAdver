@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.thomas15v</groupId>
-    <artifactId>NoAdver</artifactId>
+    <artifactId>noadver</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
@@ -72,7 +72,7 @@
                             <relocations>
                                 <relocation>
                                     <pattern>org.jsoup</pattern>
-                                    <shadedPattern>com.thomas15v.NoAdver.lib.org.jsoup</shadedPattern>
+                                    <shadedPattern>com.thomas15v.noadver.lib.org.jsoup</shadedPattern>
                                 </relocation>
                             </relocations>
                         </configuration>

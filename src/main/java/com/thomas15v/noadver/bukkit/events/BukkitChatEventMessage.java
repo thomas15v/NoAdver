@@ -1,6 +1,6 @@
-package com.thomas15v.NoAdver.bukkit.events;
+package com.thomas15v.noadver.bukkit.events;
 
-import com.thomas15v.NoAdver.plugin.ChatMessage;
+import com.thomas15v.noadver.plugin.ChatMessage;
 import org.bukkit.ChatColor;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
