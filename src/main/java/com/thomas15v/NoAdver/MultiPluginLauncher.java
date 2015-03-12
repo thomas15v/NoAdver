@@ -1,6 +1,6 @@
 package com.thomas15v.NoAdver;
 
-import com.thomas15v.NoAdver.bukkit.BukkitChatListener;
+import com.thomas15v.NoAdver.bukkit.BukkitListener;
 import com.thomas15v.NoAdver.bukkit.BukkitServer;
 import com.thomas15v.NoAdver.plugin.Plugin;
 import com.thomas15v.NoAdver.sponge.SpongeChatListener;
@@ -16,7 +16,7 @@ public class MultiPluginLauncher extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        BukkitChatListener listener = new BukkitChatListener(this);
+        BukkitListener listener = new BukkitListener(this);
         this.plugin = new Plugin(new BukkitServer(this, listener));
         getServer().getPluginManager().registerEvents(listener, this);
     }

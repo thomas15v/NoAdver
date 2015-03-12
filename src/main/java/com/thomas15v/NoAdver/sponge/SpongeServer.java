@@ -24,7 +24,7 @@ public class SpongeServer implements Server {
 
     @Override
     public void runtask(Runnable runnable) {
-        runnable.run();
+        //runnable.run();
         game.getSyncScheduler().runTask(multiPluginLauncher, runnable);
     }
 

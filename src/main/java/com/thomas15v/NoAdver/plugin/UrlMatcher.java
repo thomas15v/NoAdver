@@ -32,7 +32,10 @@ public class UrlMatcher {
                     }
                     if (word.contains("/"))
                         word = word.split("/")[0];
-                    InetAddress.getByName(word);
+                    if (word.contains(":"))
+                        InetAddress.getByName(word.split(":")[0]);
+                    else
+                        InetAddress.getByName(word);
                     return word;
                 } catch (UnknownHostException e) {
                 }
@@ -43,7 +46,12 @@ public class UrlMatcher {
     public static boolean hasMinecraftService(String url){
         try {
             Socket socket = new Socket();
-            socket.connect(new InetSocketAddress(url, 25565), 2000);
+            if (url.contains(":")) {
+                String[] data = url.split(":");
+                socket.connect(new InetSocketAddress(data[0], Integer.parseInt(data[1])), 2000);
+            }
+            else
+                socket.connect(new InetSocketAddress(url, 25565), 2000);
             socket.close();
             return true;
         } catch (Exception ex) {
@@ -53,6 +61,8 @@ public class UrlMatcher {
 
     public static boolean isEnjinSite(String url){
         try {
+            if (url.contains(":"))
+                url = url.split(":")[0];
             new Scanner(new URL("http://" + url + "//api/v1/api.php").openStream(), "UTF-8").useDelimiter("\\A").next();
             return true;
         }catch (Exception e){}
@@ -68,13 +78,14 @@ public class UrlMatcher {
                     return true;
 
             //Heavy shit this lol. But WE HAVE TO BE SURE DON'T WE
-            Document doc = Jsoup.connect("http://" + website).userAgent("Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:35.0) Gecko/20100101 Firefox/35.0").get();
+            Document doc = Jsoup.connect("http://" + website).userAgent("Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:35.0) Gecko/20100101 Firefox/35.0").timeout(10000).get();
             Elements elements = doc.select("a,p,span,h1,h2,h3,h4,h5");
             List<String> checked = new ArrayList<>();
             for (Element element : elements){
                 String url = getUrl(element.html());
                 if (url != null && !checked.contains(url)) {
                     checked.add(url);
+                    System.out.println(checked);
                     if (hasMinecraftService(url) || isEnjinSite(url)) {
                         System.out.println("We found this " + url);
                         return true;
@@ -82,7 +93,9 @@ public class UrlMatcher {
                 }
             }
         }
-        catch (Exception e){}
+        catch (Exception e){
+            return true;
+        }
         return false;
     }
 

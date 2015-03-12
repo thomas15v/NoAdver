@@ -1,14 +1,14 @@
-package com.thomas15v.NoAdver.bukkit;
+package com.thomas15v.NoAdver.bukkit.events;
 
 import com.thomas15v.NoAdver.plugin.ChatMessage;
 import org.bukkit.ChatColor;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-public class BukkitChatMessage implements ChatMessage {
+public class BukkitChatEventMessage implements ChatMessage {
 
     private AsyncPlayerChatEvent event;
 
-    public BukkitChatMessage(AsyncPlayerChatEvent event){
+    public BukkitChatEventMessage(AsyncPlayerChatEvent event){
         this.event = event;
     }
 
@@ -20,7 +20,6 @@ public class BukkitChatMessage implements ChatMessage {
     @Override
     public void warnplayer(String s) {
         event.getPlayer().sendMessage(ChatColor.DARK_RED + s);
-        event.setCancelled(true);
     }
 
     @Override

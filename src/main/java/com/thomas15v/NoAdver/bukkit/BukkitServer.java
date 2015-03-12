@@ -1,6 +1,5 @@
 package com.thomas15v.NoAdver.bukkit;
 
-import com.thomas15v.NoAdver.MultiPluginLauncher;
 import com.thomas15v.NoAdver.plugin.ChatMessage;
 import com.thomas15v.NoAdver.plugin.Server;
 import org.bukkit.Bukkit;
@@ -13,9 +12,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class BukkitServer implements Server {
 
     private JavaPlugin launcher;
-    private BukkitChatListener listener;
+    private BukkitListener listener;
 
-    public BukkitServer(JavaPlugin launcher, BukkitChatListener listener){
+    public BukkitServer(JavaPlugin launcher, BukkitListener listener){
         this.launcher = launcher;
         this.listener = listener;
     }

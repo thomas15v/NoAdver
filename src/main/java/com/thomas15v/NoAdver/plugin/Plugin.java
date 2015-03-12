@@ -8,7 +8,7 @@ public class Plugin {
         this.server = server;
     }
 
-    public void OnChat(final ChatMessage chatMessage){
+    public void checkEvent(final ChatMessage chatMessage){
         for (final String url : UrlMatcher.getUrls(chatMessage.getMessage())) {
             if (UrlMatcher.hasMinecraftService(url) || UrlMatcher.isEnjinSite(url)) {
                 chatMessage.warnplayer("Advertising is not allowed!");

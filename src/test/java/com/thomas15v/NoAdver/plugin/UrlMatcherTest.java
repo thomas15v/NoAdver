@@ -71,6 +71,6 @@ public class UrlMatcherTest {
 
     @Test
     public void testnonEnjinSite() throws NamingException {
-        System.out.println(UrlMatcher.websiteContainsMinecraftServer("mchazard.com  "));
+        System.out.println(UrlMatcher.websiteContainsMinecraftServer("minecraft-nl.gamepedia.com"));
     }
 }

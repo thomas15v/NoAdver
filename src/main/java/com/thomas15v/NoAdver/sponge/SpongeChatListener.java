@@ -19,7 +19,7 @@ public class SpongeChatListener extends IgnoreAbleListener<Event> {
         if (isIgnore(event))
             removeIgnored(event);
         else
-            plugin.OnChat(new SpongeChatMessage(event));
+            plugin.checkEvent(new SpongeChatMessage(event));
     }
 
 }
