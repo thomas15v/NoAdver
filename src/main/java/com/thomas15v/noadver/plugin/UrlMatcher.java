@@ -32,6 +32,8 @@ public class UrlMatcher {
                     }
                     if (word.contains("/"))
                         word = word.split("/")[0];
+                    if (word.indexOf(".") != 3 &&isNumberic(word.replace(".", "")))
+                        return null;
                     if (word.contains(":"))
                         InetAddress.getByName(word.split(":")[0]);
                     else
@@ -97,6 +99,15 @@ public class UrlMatcher {
             return true;
         }
         return false;
+    }
+
+    public static boolean isNumberic(String string){
+        try {
+            Integer.parseInt(string);
+            return true;
+        }catch (NumberFormatException e){
+            return false;
+        }
     }
 
 }
