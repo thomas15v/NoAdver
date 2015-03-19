@@ -1,5 +1,8 @@
 package com.thomas15v.noadver.plugin;
 
+import java.util.List;
+import java.util.Map;
+
 public class Plugin {
 
     private final Server server;
@@ -7,6 +10,8 @@ public class Plugin {
     public Plugin(Server server){
         this.server = server;
     }
+
+    public Map<String, List<String>> history;
 
     public void checkEvent(final ChatMessage chatMessage){
         for (final String url : UrlMatcher.getUrls(chatMessage.getMessage())) {

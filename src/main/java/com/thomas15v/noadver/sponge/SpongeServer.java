@@ -5,6 +5,7 @@ import com.thomas15v.noadver.plugin.ChatMessage;
 import com.thomas15v.noadver.plugin.Server;
 import com.thomas15v.noadver.sponge.SpongeListener;
 import org.spongepowered.api.Game;
+import org.spongepowered.api.event.entity.living.player.PlayerChatEvent;
 import org.spongepowered.api.util.event.Event;
 
 /**
@@ -30,9 +31,10 @@ public class SpongeServer implements Server {
 
     @Override
     public void sendMessage(ChatMessage message) {
-        Event event = (Event) message.getHandle();
+        PlayerChatEvent event = (PlayerChatEvent) message.getHandle();
         listener.addIgnored(event);
+        event.setCancelled(false);
         game.getEventManager().post(event);
-
+        game.getServer().get().broadcastMessage(event.getMessage());
     }
 }
